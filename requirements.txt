@@ -1,0 +1,11 @@
+flask
+flask-cors
+python-dotenv
+pymongo
+pdfplumber
+requests
+pinecone
+langchain
+langchain-core
+langchain-huggingface
+langchain-pinecone
