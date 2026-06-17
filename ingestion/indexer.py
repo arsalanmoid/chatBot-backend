@@ -2,7 +2,7 @@ import os
 import hashlib
 from pymongo import MongoClient
 from langchain_core.documents import Document
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from rag.vectorstore import add_documents
 from ingestion.pdf_loader import load_pdf_from_url
 

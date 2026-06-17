@@ -9,3 +9,4 @@ pinecone
 langchain
 langchain-core
 langchain-huggingface
+langchain-text-splitters
