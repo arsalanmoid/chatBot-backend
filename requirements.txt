@@ -5,6 +5,7 @@ python-dotenv
 pymongo
 pdfplumber
 requests
+numpy
 pinecone
 langchain
 langchain-core
