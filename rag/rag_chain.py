@@ -1,6 +1,6 @@
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
-from rag.vectorstore import get_vectorstore
+from rag.vectorstore import similarity_search
 from rag.model import get_llm
 
 SYSTEM_PROMPT = (
@@ -18,8 +18,7 @@ prompt = ChatPromptTemplate.from_messages([
 
 def chat(question: str, n_results: int = 5) -> dict:
     # step 1: find the top N most relevant chunks from Pinecone
-    retriever = get_vectorstore().as_retriever(search_kwargs={"k": n_results})
-    docs = retriever.invoke(question)
+    docs = similarity_search(question, k=n_results)
 
     if not docs:
         return {

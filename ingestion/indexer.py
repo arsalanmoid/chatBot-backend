@@ -3,7 +3,7 @@ import hashlib
 from pymongo import MongoClient
 from langchain_core.documents import Document
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from rag.vectorstore import get_vectorstore
+from rag.vectorstore import add_documents
 from ingestion.pdf_loader import load_pdf_from_url
 
 # split large PDF text into 500-word chunks with 50-word overlap between chunks
@@ -24,7 +24,7 @@ def _index_document(url: str, title: str, subject: str, doc_id: str):
 
     # use stable IDs so re-indexing the same doc overwrites instead of duplicating
     ids = [f"{doc_id}_{i}" for i in range(len(chunks))]
-    get_vectorstore().add_documents(chunks, ids=ids)
+    add_documents(chunks, ids=ids)
     return len(chunks)
 
 def ingest_all():
